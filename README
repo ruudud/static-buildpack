@@ -1,0 +1,7 @@
+# Dokku Static Buildpack using Nginx
+
+To use this buildpack, add an `.env` file in your project containing this:
+
+```
+BUILDPACK_URL=https://github.com/ruudud/static-buildpack.git
+```

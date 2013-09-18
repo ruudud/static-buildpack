@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+build_dir=$1
+cache_dir=$2
+
+# fail fast
+set -e
+
+echo "-----> Installing nginx-light with apt-get"
+
+apt-get update
+apt-get install nginx-light
+
+echo "       Nginx installed"
+
+echo "-----> Adding Nginx config"
+
+cat > $build_dir/.nginx.conf <<STUFF
+daemon off;
+error_log stderr;
+worker_processes 1;
+
+events {
+    worker_connections 1024;
+}
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    access_log /dev/stdout;
+
+    server {
+        listen 5000;
+        location / {
+            root "$build_dir/";
+            autoindex on;
+            index index.html index.htm;
+        }
+    }
+}
+STUFF
+
+
+
