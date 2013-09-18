@@ -31,7 +31,7 @@ http {
     server {
         listen 5000;
         location / {
-            root "$build_dir/";
+            root "/app/";
             autoindex on;
             index index.html index.htm;
         }
