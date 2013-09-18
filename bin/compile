@@ -8,8 +8,8 @@ set -e
 
 echo "-----> Installing nginx-light with apt-get"
 
-apt-get update
-apt-get install nginx-light
+apt-get -y update
+apt-get -y install nginx-light
 
 echo "       Nginx installed"
 
