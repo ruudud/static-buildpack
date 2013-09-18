@@ -5,6 +5,6 @@ app_root=$1
 cat <<STUFF
 ---
 default_process_types:
-  web: nginx -c $app_root/nginx.conf
+  web: nginx -c $app_root/.nginx.conf
 STUFF
 
