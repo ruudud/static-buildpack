@@ -30,6 +30,8 @@ http {
 
     server {
         listen 5000;
+        port_in_redirect off;
+
         location / {
             root "/app/";
             autoindex on;
